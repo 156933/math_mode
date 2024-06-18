@@ -16,9 +16,15 @@ int groups[TOTAL_GROUPS][3] = {
 /*
 如果当前comb[] = {0,1,2,3,4},那么S1,S2,S3,S4,S5被包含在检查组内
 也就是说{1, 2, 3}, {2, 3, 5}, {6, 7, 8}, {7, 8, 9}, {8, 9, 11}包含S1-S5组
+C1,C2,C3,C2,C3,C5,C6,C7,C8,C7,C8,C9,C9,C9,C11
+
 定义一个布尔类型的，存放15个位置的数组covered(从数组的第二个元素1开始到14)初始化为false
 遍历comb若出现C(i) 则将covered上对应的位置改为true
-最后对covered遍历，若数组全部为true，则返回true表示当前组合覆盖了所有应聘者，反之
+
+最后对covered遍历，若数组从1-14全部为true，则返回true表示当前组合覆盖了所有应聘者，反之返回false
+此时cover={false,true,true,true,false,true,true,true,true,true,false,true,false,false,false}
+            x     C1   C2   C3         C5   C6   C7   C8  C9          C11
+显然这一个组合没有包括全部应聘者 返回false
 */
 bool _covers(int comb[], int comb_size)
 {
@@ -94,6 +100,7 @@ void _find(int start, int comb[], int comb_index, int comb_size)
     {
         if (_covers(comb, comb_size))
         {
+            // 当条件符合，打印对应组合
             _print(comb, comb_size);
         }
         return;
