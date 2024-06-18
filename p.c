@@ -2,8 +2,8 @@
 #include <stdio.h>
 #include <stdbool.h>
 // 定义常量
-#define TOTAL_GROUPS 33     // 应聘者总数
-#define TOTAL_CANDIDATES 14 //
+#define TOTAL_GROUPS 33     // 不同组合的数量
+#define TOTAL_CANDIDATES 14 // 应聘者的数量
 
 // 计数器
 int num = 0;
